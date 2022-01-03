@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='tokens.html'>tokens</a><li class='has-children'><a href='Git.html'>Git</a><ul class='dropdown'><li><a href='git push.html'>git push</a><li><a href='git 指令.html'>git 指令</a></li></ul><li><a href='ssh push.html'>ssh push</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='TYPING.html'>TYPING</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a><li><a href='作業倉儲網站.html'>作業倉儲網站</a><li><a href='心得.html'>心得</a></li></ul><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='ai snake.html'>ai snake</a><li><a href='snake (1).html'>snake (1)</a><li><a href='snake(2).html'>snake(2)</a><li><a href='run snake.html'>run snake</a></li></ul><li><a href='EXAM.html'>EXAM</a><li class='has-children'><a href='Final Project.html'>Final Project</a><ul class='dropdown'><li><a href='run src.html'>run src</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='tokens.html'>tokens</a><li class='has-children'><a href='Git.html'>Git</a><ul class='dropdown'><li><a href='git push.html'>git push</a><li><a href='git 指令.html'>git 指令</a></li></ul><li><a href='ssh push.html'>ssh push</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='TYPING.html'>TYPING</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a><li><a href='作業倉儲網站.html'>作業倉儲網站</a><li><a href='心得.html'>心得</a><li><a href='HW12-1.html'>HW12-1</a></li></ul><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='ai snake.html'>ai snake</a><li><a href='snake (1).html'>snake (1)</a><li><a href='snake(2).html'>snake(2)</a><li><a href='run snake.html'>run snake</a></li></ul><li><a href='EXAM.html'>EXAM</a><li class='has-children'><a href='Final Project.html'>Final Project</a><ul class='dropdown'><li><a href='run src.html'>run src</a></li>
                       </ul>
                 </nav>
               </div>
@@ -140,10 +140,6 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">HW1 << <a href='HW1.html'>Previous</a> <a href='TYPING.html'>Next</a> >> TYPING<br /><h1>HW1-1</h1>
-<p><a href="./../downloads/w12demo.txt">w12demo.txt</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Flag_of_the_Republic_of_China#Construction_details">ROC 國旗規格</a>.</p>
-<p><a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97#%E8%A7%84%E6%A0%BC">PROC 國旗規格</a> - 可以根據此規格定義, 新增 <button id="procflas">PROC flag</button> 按鈕.</p>
-<p><a href="https://en.wikipedia.org/wiki/Flag_of_the_United_States#Specifications">USA 國旗規格</a> - 可以根據此規格定義, 新增 <button id="usaflag">USA flag</button> 按鈕.</p>
 <!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -182,7 +178,7 @@ function doSave(storage_id, filename){
 <script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
 <script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script>
 </p>
-<p><button id="add1to100">add 1 to 100</button><button id="p261">p261</button><button id="rocflag">ROC flag</button><button id="red">red</button></p>
+<p><button id="red">red</button><button id="red button">red button</button></p>
 <p><!-- ######################  editor1 開始 ###################### --></p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
@@ -218,7 +214,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/mdecourse/0229a8a017091476a79700b8a190f185/raw/c3a6deaf717f8f2739a4b1392a5ab10936e9693a/from_1_add_to_10_1.py"
+        url = "https://gist.githubusercontent.com/JIAN3-LIN/86a80717f9a7001b0e8fa4e199a82a80/raw/d765b085fafd3268a2a08787d13fbf923c531bda/hw1-1"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -264,27 +260,18 @@ class button2:
         Ace2.editor.gotoLine(0)
         Ace2.run()
 
-add1to100_url = "https://gist.githubusercontent.com/mdecourse/0229a8a017091476a79700b8a190f185/raw/c48e37714f055c3a0027cbfef59e442a6ef659b9/from_1_add_to_100_1.py"
-add1to100 = button2(add1to100_url)
-doc["add1to100"].bind('click', add1to100.do)
-################################# p261 start 
-p261_url = "https://gist.githubusercontent.com/mdecourse/2f56974a40da7a218dbaef376a5b4ca4/raw/980606effcd29635307d6474718cd4a7ef016747/p261.py"
-p261 = button2(p261_url)
-doc["p261"].bind('click', p261.do)
-################################## p261 end
-################################## rocflag start
-rocflag_url = "https://gist.githubusercontent.com/mdecourse/2f56974a40da7a218dbaef376a5b4ca4/raw/0e2ca81d5c2539c4b6c86071c8cf9de0b1251b9c/roc_flag.py"
-rocflag = button2(rocflag_url)
-doc["rocflag"].bind("click", rocflag.do)
-################################## rocflag end
 ################################## red start
 red_url = "https://gist.githubusercontent.com/JIAN3-LIN/86a80717f9a7001b0e8fa4e199a82a80/raw/d765b085fafd3268a2a08787d13fbf923c531bda/hw1-1"
 red = button2(red_url)
 doc["red"].bind("click", red.do)
 ################################## red end
+################################## red button start
+red button_url = "https://gist.githubusercontent.com/JIAN3-LIN/89d76e6270861f806e1f7e61ecbd31e0/raw/8013842786fa7e1004ff0d42bae36810686317c9/w1-2"
+red button = button2(red button_url)
+doc["red button"].bind("click", red button.do)
+################################## red button end
 </script>
-</p>
-<br />HW1 << <a href='HW1.html'>Previous</a> <a href='TYPING.html'>Next</a> >> TYPING</div>
+</p><br />HW1 << <a href='HW1.html'>Previous</a> <a href='TYPING.html'>Next</a> >> TYPING</div>
         
     <!-- footer -->
       <div class="container">
