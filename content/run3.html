@@ -139,40 +139,90 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW1-1 << <a href='HW1-1.html'>Previous</a> <a href='HW2.html'>Next</a> >> HW2<br /><h1>TYPING</h1>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">Gist是Github的一個子服務，且任何人都可以使用這個服務，不論你是否擁有Github帳號。以開發者的角度來說，最基本的功能就是可以分享片段的原始碼。有別於Github
-的Repository，Gist可以只分享專案中的某一個小檔案中的原始碼，且擁有私人的選項，讓別人不會搜尋你的Gist。在Github的Repository設定Private是要付費的，但
-在Gist是不需要的。除此之外Gist還有許多好處，包括可以直接執行我們就來一一介紹吧!
-7minutes 30seconds
-
-Every gist is a Gist repository, which means that it can be forked and cloned. If you are signed in to GitHub when you create a gist,the gist will be associated with your account and you will see it in your list of gists when you naviagate to your gist home page.
-
-Gists can be public or secret. Public gists show up in Discover, where people can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.ur
-
-Secret gists don't show up in Discover and sre not searchable. Secret gists aren't private. If you send the URL of a secret gist to a friend, they'll be able to see it. However, if someone you don't know discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to create a private repository instead.
-
-After creating a gist, you cannot convert  it from public to secret.
-
-You'll receive a notification when:
-
-You are the author of a gist. Someone mentions you in a gist. You subscribe to a gist, by clicking Subscribe at the top of any gist.
-
-You can pin gists to your profile so other people can see them easily. For more information, see "Pinning items to your profile."
-
-You can discover public gists others have created by going to the gist home pagr and clicking All Gist Search. Gist search uses the same search syntax as code search.
-
-Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see"Forking and cloning gists".
-
-You can download a ZIP file of a gist by clicking the Download ZIP button at the top of the gist. You can embed a gist in any text field that supports Javascript, such as a blog post. To get the embed code, click the clipboard icon next to the Embed URL of a gist. To embed a specific gist file, append the Embed URL wih ?file=FILENAME.
-
-Gist supports mapping
-
-GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more infomation, see "Working with non-code file."
-
-44minutes
-
-</pre>
-<br />HW1-1 << <a href='HW1-1.html'>Previous</a> <a href='HW2.html'>Next</a> >> HW2</div>
+    <div id="tipue_search_content">run2 << <a href='run2.html'>Previous</a> <a href='作業倉儲網站.html'>Next</a> >> 作業倉儲網站<br /><h1>run3</h1>
+<!-- 導入 brython 程式庫 -->
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+# Spur Gear in Cango and gearUtils-09.js
+from browser import document as doc
+from browser import html
+from browser import window
+import browser.timer
+import math
+# 利用 html 建立一個 CANVAS 標註物件, 與變數 canvas 對應
+canvas = html.CANVAS(width = 600, height = 400)
+# 將 canvas 標註的 id 設為 "cango_gear"
+canvas.id = "cango_gear"
+# 將 document 中 id 為 "brython_div" 的標註
+# 設為與 brython_div 變數對應
+brython_div = doc["brython_div"]
+# 將 canvas 標註放入 brython_div 所在位置
+brython_div <= canvas
+# 將頁面中 id 為 cango_gear 的 CANVAS 設為與 canvas 對應
+canvas = doc["cango_gear"]
+# convert Javascript objects to Brython variables
+cango = window.Cango.new
+circle = window.circle.new
+shape = window.Shape.new
+path = window.Path.new
+creategeartooth = window.createGearTooth.new
+svgsegs = window.SVGsegs.new
+# 經由 Cango 轉換成 Brython 的 cango
+# 指定將圖畫在 id="cango_gear" 的 canvas 上
+cgo = cango("cango_gear")
+# 以下將要使用 gearUtils-09.js 畫出正齒輪外形
+# 假設齒數為 25
+num = 25
+# 利用 gearUtils-09 產生單一齒輪外形資料
+tooth = creategeartooth(10, num, 20)
+# 在 Cango 中, 只有 SVG 才能 rotate, appendPath 或 joinPath
+# 將齒輪外形轉為 SVG segment
+toothSVG = svgsegs(tooth)
+path1 = path(toothSVG.scale(1), {"degs": 45, "x": 100, "y": 100, "strokeColor": "#606060"})
+#print(path1)
+# SVG list
+circle = circle(50)
+#print(circle)
+circleSVG = svgsegs(circle)
+#print(circleSVG)
+# 若將 circleSVG 轉為 Cango path, 則可以用 cgo.render()
+#circlePath = path(circleSVG, {"x": 100, "y": 100, "strokeColor": "#606060"})
+#cgo.render(circlePath)
+# svgsegs 資料可以 joinPath 或 appendPath
+# joinPath 按照頭尾順序銜接
+# appendPath 則無順序銜接
+# 從 toothSVG 複製出單齒 SVG 資料
+one = toothSVG.dup()
+# 以照齒數, 逐一複製並附加在原單齒資料中
+# 第一齒的資料已經在 toothSVG 中, 因此重複迴圈從 1 開始
+for i in range(1, num):
+    newSVG = one.rotate(360*i/num)
+    toothSVG = toothSVG.appendPath(newSVG)
+# 將 SVG 轉為 path 資料
+#gear = path(toothSVG, {"x": 150, "y": 150, "strokeColor": "#606060"})
+# path 資料可以透過 cgo.render()顯示繪圖物件
+#cgo.render(gear)
+# 當 circle 接外齒使用 appendPath
+toothSVG = toothSVG.appendPath(circleSVG)
+#print(toothSVG)
+spurPath = path(toothSVG, {"x": 150, "y": 150, "strokeColor": "#606060"})
+cgo.render(spurPath)
+</script>
+<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
+<div id="brython_div"></div>
+<!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script><br />run2 << <a href='run2.html'>Previous</a> <a href='作業倉儲網站.html'>Next</a> >> 作業倉儲網站</div>
         
     <!-- footer -->
       <div class="container">
